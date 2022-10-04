@@ -84,6 +84,7 @@ if (j == g) Console.WriteLine("ничья");
 else Console.WriteLine("Вторая часть"); //тадам! */
 
 /* // посчитать сумму цифр числа, например 246 будет 12
+
 Console.WriteLine("Введите число");
 int number = int.Parse(Console.ReadLine());
 int sum = 0;
@@ -95,3 +96,95 @@ while ( number != 0)
    number = number/10;
 }
 Console.WriteLine(sum); */
+
+/* // Напишите программу, которая выводит случайное число из отрезка [10, 9999] и показывает наибольшую цифру числа.
+
+int num = new Random ().Next(1, 9999);
+Console.WriteLine(num);
+
+int max = 0;
+int temp = 0;
+while ( num != 0)
+{
+    temp = num%10;
+    if (temp>max) max = temp;
+   num = num/10;
+}
+Console.WriteLine(max); */
+
+/* // Напишите программу, которая выводит случайное трёхзначное число и удаляет вторую цифру этого числа.
+
+int num = new Random ().Next(1, 999);
+Console.WriteLine(num);
+int a1 = num/100;
+int a2 = num%10;
+int a3 = a1*10 +a2;
+Console.WriteLine(a3); */
+
+/* //Напишите программу, которая будет принимать на вход два числа и выводить, является ли второе число кратным первому. Если число 2 не кратно числу 1, то программа выводит остаток от деления.
+//34, 5 -> не кратно, остаток 4 
+//16, 4 -> кратно
+
+Console.WriteLine("Введите число 1");
+int num1 = int.Parse(Console.ReadLine());
+Console.WriteLine("Введите число 2");
+int num2 = int.Parse(Console.ReadLine());
+int num3 = num1%num2;
+if (num3 ==0) Console.Write("кратно");
+else Console.WriteLine("не кратно, остаток  " + num3); */
+
+/* // Найти два наименьших положительных(минимальных) элемента массива
+
+int [] array = new int [10];  
+void FillArray( int [] col)
+{
+    int length = col.Length;
+    int index = 0;
+    while (index < length)
+    {
+        col[index] = new Random ().Next(-10, 100); // заполнить массив случайными числами
+        index ++;
+    }
+}
+
+void PrintArray( int [] coll)
+{
+    int count = coll.Length;
+    int position = 0;
+    while (position < count)
+    {
+        Console.Write(coll[position]+ " "); // вывести массив
+        position ++;
+    }
+}
+FillArray(array); 
+PrintArray(array);
+
+int i = 0;
+int min1 = array[0];
+int min2 = array[0];
+int ii = 0;
+for (i = 0; i < array.Length; i++)
+{
+    if (array[i] < min1) 
+    {
+        min1 = array[i];
+        ii = i;  
+    }
+    
+}
+int j = 0;
+int k =0;
+for ( j = 0; j < array.Length; j++)
+{
+    if (array[j] < min2 &&  j!= ii) {min2 = array[j]; 
+        k = j;}
+          
+   
+}
+Console.WriteLine();
+Console.WriteLine(min1);
+Console.WriteLine(ii);
+Console.WriteLine(min2);
+Console.WriteLine(k); */
+
