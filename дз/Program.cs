@@ -128,7 +128,104 @@ int pos = Index(aaa, max);
 
 Console.WriteLine(word[pos]); */
 
+// void c (int x, int y)
+// {
+//     if (x>0 && y>0) Console.WriteLine("jj");
+//     else if (x>0 && y<0) Console.WriteLine("jjj");
+//     else if (x<0 && y<0) Console.WriteLine("jjjd");
+//     else  Console.WriteLine("jjjkk");
+
+// }
+
+// string cc2 (int x, int y) {
+//     string nn = x > 0 && y >0 ? "1 cha" : "nope";
+//     return nn;
+// }
+// int x = int.Parse(Console.ReadLine());
+// int y = int.Parse(Console.ReadLine());
+// c(x,y);
+// string ccdd = cc2(x, y);
+// Console.WriteLine(ccdd);
+
+// string aa (int aa)
+// {
+//     string name = a == 1 ? "x= (o, +inf), y = (0, +inf)" : aa == 2  ? 
+//     "x= (-inf, 0), y = (0, +inf)" : aa == 3 ? "x= (- inf, 0), y = (0, -inf)" : aa == 4 ? "x= (o, +inf), y = (0, -inf)" : aa == 2 : "нет такой";
+//     return name; 
+// }
+
+// int aaa = int.Parse(Console.ReadLine());
+// string jj = aa(aaa);
+// Console.WriteLine(jj)
+
+// // Выводит все элементы массива пока не встретится элемент -1
+
+// int q = int.Parse(Console.ReadLine());
+// int [] a = new int[q];
+// void FillArray( int length, int [] col)
+// {
+//     int index = 0;
+//     while (index < length)
+//     {
+//         col[index] = new Random ().Next(-3, 4); 
+//         index ++;
+//     }
+// }
+
+// void PrintArray( int [] coll)
+// {
+//     int count = coll.Length;
+//     int position = 0;
+//     while (position < count)
+//     {
+//         Console.Write(coll[position]+ " "); 
+//         position ++;
+//     }
+// }
+
+// int fill (int [] coll3)
+// {
+//     int x = 0;
+            
+//     while (x < coll3.Length)
+//     {
+        
+//         if (coll3[x] == -1) break;
+//         x++;
+           
+//     }
+//     return x;
+// } 
+
+// void PrintArray2 ( int [] coll, int len)
+// {
+//     int pos = 0;
+//     while (pos < len)
+//     {
+//         Console.Write(coll[pos]+ " "); 
+//         pos ++;
+//     }
+// }
+
+// FillArray(q,a);
+// PrintArray(a);
+// Console.WriteLine();
+// //filtrarray (a);
+// int index2 = fill(a);
+// PrintArray2(a, index2);
 
 
+string chetvert (int a)
+{
+    string name = a == 1 ? "x= (o, +inf), y = (0, +inf)" : a == 2  ? 
+    "x= (-inf, 0), y = (0, +inf)" : a == 3 ? 
+    "x= (- inf, 0), y = (0, -inf)" : a == 4 ? 
+    "x= (o, +inf), y = (0, -inf)" : "нет такой четверти";
+    return name; 
+}
+Console.WriteLine("Введите четверть");
+int a = int.Parse(Console.ReadLine());
+string otvet = chetvert(a);
+Console.WriteLine(otvet);
 
 
