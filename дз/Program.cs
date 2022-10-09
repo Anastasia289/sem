@@ -128,60 +128,106 @@ int pos = Index(aaa, max);
 
 Console.WriteLine(word[pos]); */
 
-// void c (int x, int y)
-// {
-//     if (x>0 && y>0) Console.WriteLine("jj");
-//     else if (x>0 && y<0) Console.WriteLine("jjj");
-//     else if (x<0 && y<0) Console.WriteLine("jjjd");
-//     else  Console.WriteLine("jjjkk");
+/* //Напишите программу, которая принимает на вход пятизначное число и проверяет, является ли оно палиндромом.
 
-// }
+int polindrom (int a)
+{
+    if (a %10 == a/10000%10 && a/10%10 == a/1000 %10) Console.WriteLine("да");
+    else Console.WriteLine("нет");
+    return a; 
 
-// string cc2 (int x, int y) {
-//     string nn = x > 0 && y >0 ? "1 cha" : "nope";
-//     return nn;
-// }
-// int x = int.Parse(Console.ReadLine());
-// int y = int.Parse(Console.ReadLine());
-// c(x,y);
-// string ccdd = cc2(x, y);
-// Console.WriteLine(ccdd);
+}
 
-// string aa (int aa)
-// {
-//     string name = a == 1 ? "x= (o, +inf), y = (0, +inf)" : aa == 2  ? 
-//     "x= (-inf, 0), y = (0, +inf)" : aa == 3 ? "x= (- inf, 0), y = (0, -inf)" : aa == 4 ? "x= (o, +inf), y = (0, -inf)" : aa == 2 : "нет такой";
-//     return name; 
-// }
+int num = new Random ().Next(10000, 99999);
+Console.WriteLine(num);
 
-// int aaa = int.Parse(Console.ReadLine());
-// string jj = aa(aaa);
-// Console.WriteLine(jj)
+int e = 34543; // полиндром, чтобы убедиться, что "да" работает
 
-// // Выводит все элементы массива пока не встретится элемент -1
+polindrom(num);
+polindrom(e); */
 
-// int q = int.Parse(Console.ReadLine());
-// int [] a = new int[q];
-// void FillArray( int length, int [] col)
-// {
-//     int index = 0;
-//     while (index < length)
-//     {
-//         col[index] = new Random ().Next(-3, 4); 
-//         index ++;
-//     }
-// }
 
-// void PrintArray( int [] coll)
-// {
-//     int count = coll.Length;
-//     int position = 0;
-//     while (position < count)
-//     {
-//         Console.Write(coll[position]+ " "); 
-//         position ++;
-//     }
-// }
+/* // Напишите программу, которая принимает на вход координаты двух точек и находит расстояние между ними в 3D пространстве.
+// A (3,6,8); B (2,1,-7), -> 15.84
+// A (7,-5, 0); B (1,-1,9) -> 11.53
+// D=sqrt((X2-X1)^2 + (Y2-Y1)^2 + (Z2 - Z1)^2)
+
+void distance (int x1, int y1, int z1, int x2,  int y2, int z2)
+{
+    double d = Math.Sqrt(Math.Pow (x2- x1, 2) + Math.Pow (y2- y1, 2) + Math.Pow (z2- z1, 2 ));
+    Console.WriteLine(d);
+}
+
+Console.WriteLine("Введите координаты точки А");
+int ax = int.Parse(Console.ReadLine());
+int ay = int.Parse(Console.ReadLine());
+int az = int.Parse(Console.ReadLine());
+Console.WriteLine("Введите координаты точки B");
+int bx = int.Parse(Console.ReadLine());
+int by = int.Parse(Console.ReadLine());
+int bz = int.Parse(Console.ReadLine());
+
+Console.WriteLine("Расстояние между точками равно ");
+distance(ax, ay, az, bx , by, bz); */
+
+/* // Напишите программу, которая принимает на вход число (N) и выдаёт таблицу кубов чисел от 1 до N.
+
+void kub (int a)
+{
+   double [] axz = new double [a+1];
+   for (int i = 1; i <= a; i++)
+{
+    axz [i] = Math.Pow(i, 3);
+    Console.Write(axz [i] + " ");
+}
+}
+Console.WriteLine("Введите число");
+int num = int.Parse(Console.ReadLine());
+kub (num); */
+
+// из массива удаляется элемент с позиции, которую введет пользователь
+
+
+int [] FillArray ( int length)
+{
+    int [] col = new int [length];
+    int index = 0;
+    while (index < length)
+    {
+        col[index] = new Random ().Next(-20, 20);  // задали и заполнили массив
+        Console.Write(col[index] + " ");
+        index ++;
+        
+    }
+    return col;
+}
+
+int [] del ( int [] coll2, int y)
+
+{
+    int [] coll3 = new int [coll2.Length];
+    if (y> coll2.Length || y < 0) Console.WriteLine("Нет такой позиции"); 
+    for (int index2 = 0; index2 < coll2.Length; index2++) 
+          
+    {
+        if (index2 != y) coll3[index2] = coll2[index2];
+        Console.Write(coll3[y]+ " "); 
+        index2++;
+    }
+    return index2;
+} 
+
+Console.WriteLine("Задайте длину массива");
+int q = int.Parse(Console.ReadLine());
+Console.WriteLine("C какой позиции элемент хотите убрать?");
+int p = int.Parse(Console.ReadLine());
+
+int [] w = FillArray(q);
+Console.WriteLine();
+del(w, p);
+
+
+//del(im, p);
 
 // int fill (int [] coll3)
 // {
@@ -206,26 +252,9 @@ Console.WriteLine(word[pos]); */
 //         pos ++;
 //     }
 // }
-
 // FillArray(q,a);
 // PrintArray(a);
 // Console.WriteLine();
 // //filtrarray (a);
 // int index2 = fill(a);
 // PrintArray2(a, index2);
-
-
-string chetvert (int a)
-{
-    string name = a == 1 ? "x= (o, +inf), y = (0, +inf)" : a == 2  ? 
-    "x= (-inf, 0), y = (0, +inf)" : a == 3 ? 
-    "x= (- inf, 0), y = (0, -inf)" : a == 4 ? 
-    "x= (o, +inf), y = (0, -inf)" : "нет такой четверти";
-    return name; 
-}
-Console.WriteLine("Введите четверть");
-int a = int.Parse(Console.ReadLine());
-string otvet = chetvert(a);
-Console.WriteLine(otvet);
-
-
