@@ -107,7 +107,7 @@ int pos = IndexOf(array, 4);
 Console.WriteLine();
 Console.WriteLine(pos); */
 
-// Вводится строка слов, разделенных пробелами. Найти самое длинное слово и вывести его на экран.
+/* // Вводится строка слов, разделенных пробелами. Найти самое длинное слово и вывести его на экран.
  
 Console.WriteLine("Введите предложение");
 string str = Console.ReadLine();
@@ -124,20 +124,6 @@ int a = 0;
     a = j.Length;
     aaa[i] = a;  // заполняем его количеством букв в каждом слове
 }
-/*
-
-void PrintArray( int [] aaa)
-{
-    int count = aaa.Length;
-    int position = 0;
-    while (position < count)
-    {
-        Console.Write(aaa[position]+ " "); // распечатать массив, чтобы сравнить цифры в массиве с кол-вом букв
-        position ++;
-    }
-}
-
-PrintArray(aaa);*/
 
 int max = aaa[0];
 int ii = 0;
@@ -168,4 +154,63 @@ int pos = Index(aaa, max);
 
 // Console.WriteLine(pos);
 // Console.WriteLine(max);
-Console.WriteLine(word[pos]);
+Console.WriteLine(word[pos]); */
+
+/* // поменять символы в тексе ( = на / или еще что)
+
+string txt = "Сегодня мы углубимся в тему и выделим 4 основных группы методов," + 
+"а также будем использовать их на практике." +
+"И познакомимся с новыми языковыми конструкциями, в частности, циклом.";
+
+string replace (string text, char oldValue, char newValue)
+{
+    string result = string.Empty;
+    int lenght = text.Length;
+
+    for (int i = 0; i < text.Length; i++)
+    {
+        if (text[i] == oldValue) result = result + $"{newValue}";
+        else result = result + $"{text[i]}";
+
+    }
+    return result;
+}
+
+string neuu = replace(txt, ' ', '|');
+Console.WriteLine(neuu); */
+
+/* // Отсортировать от меньшего к большему
+int[] arr = { 1, 6, 3, 6, 3, 5, 6, 6, 3, 5, 5,};
+void Printarr (int [] array)
+{
+    int count = array.Length;
+    for (int i = 0; i < count; i ++)
+    {
+        Console.Write($"{array[i]}" + " ");
+    }
+}
+
+
+void Selectionsort (int[] array)
+{
+    for (int i = 0; i < array.Length - 1; i ++)
+    {
+        int Min = i;
+        for (int j= i+1; j < array.Length; j++)
+    {
+        if (array[j] < array[Min])
+        {
+            Min = j;
+        }
+    }
+    int temp = array[i];
+    array[i] = array[Min];
+    array[Min] = temp;
+    }
+}
+
+Printarr(arr);
+Selectionsort(arr);
+Console.WriteLine();
+Printarr(arr); */
+
