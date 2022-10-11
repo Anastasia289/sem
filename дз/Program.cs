@@ -1,132 +1,190 @@
-﻿/* //Напишите программу, которая принимает на вход пятизначное число и проверяет, является ли оно палиндромом.
+﻿/* // Задача 25: Напишите цикл, который принимает на вход два числа (A и B) и возводит число A в натуральную степень B. 
+//Сделать в функции, сделать проверку на отрицательность.
+// 3, 5 -> 243 (3⁵)
+// 2, 4 -> 16
 
-int polindrom (int a)
+void stepen ()
 {
-    if (a %10 == a/10000%10 && a/10%10 == a/1000 %10) Console.WriteLine("да");
-    else Console.WriteLine("нет");
-    return a; 
+Console.WriteLine("Введите число А");
+int A = int.Parse(Console.ReadLine());
+Console.WriteLine("Введите число B");
+int B = int.Parse(Console.ReadLine());
+double C = 0;
+if (B>0) C = Math.Pow (A, B);
+Console.WriteLine(C);   
 }
 
-int num = new Random ().Next(10000, 99999);
-Console.WriteLine(num);
+stepen (); */
 
-int e = 34543; // полиндром, чтобы убедиться, что "да" работает
+/* // Задача 27: Напишите программу, которая принимает на вход число и выдаёт сумму цифр в числе.
 
-polindrom(num);
-polindrom(e); */
-
-
-/* // Напишите программу, которая принимает на вход координаты двух точек и находит расстояние между ними в 3D пространстве.
-// A (3,6,8); B (2,1,-7), -> 15.84
-// A (7,-5, 0); B (1,-1,9) -> 11.53
-// D=sqrt((X2-X1)^2 + (Y2-Y1)^2 + (Z2 - Z1)^2)
-
-void distance (int x1, int y1, int z1, int x2,  int y2, int z2)
+void summ ()
 {
-    double d = Math.Sqrt(Math.Pow (x2- x1, 2) + Math.Pow (y2- y1, 2) + Math.Pow (z2- z1, 2 ));
-    Console.WriteLine(d);
-}
-
-Console.WriteLine("Введите координаты точки А");
-int ax = int.Parse(Console.ReadLine());
-int ay = int.Parse(Console.ReadLine());
-int az = int.Parse(Console.ReadLine());
-Console.WriteLine("Введите координаты точки B");
-int bx = int.Parse(Console.ReadLine());
-int by = int.Parse(Console.ReadLine());
-int bz = int.Parse(Console.ReadLine());
-
-Console.WriteLine("Расстояние между точками равно ");
-distance(ax, ay, az, bx , by, bz); */
-
-/* // Напишите программу, которая принимает на вход число (N) и выдаёт таблицу кубов чисел от 1 до N.
-
-void kub (int a)
-{
-   double [] axz = new double [a+1];
-   for (int i = 1; i <= a; i++)
-{
-    axz [i] = Math.Pow(i, 3);
-    Console.Write(axz [i] + " ");
-}
-}
 Console.WriteLine("Введите число");
-int num = int.Parse(Console.ReadLine());
-kub (num); */
-
-/* // из массива удаляется элемент с позиции, которую введет пользователь
-
-
-void FillArray ( int [] array, int length)
+int number = int.Parse(Console.ReadLine());  // это и правда уже было
+int sum = 0;
+int temp = 0;
+while ( number != 0)
 {
+    temp = number%10;
+    sum = sum + temp;
+   number = number/10;
+}
+Console.WriteLine(sum); 
+}
+ 
+ summ (); */
+
+/* // Задача 29: Напишите программу, которая задаёт массив из 8 элементов и выводит их на экран. 
+//Элементы задаются рандомно. Итоговый массив должен содержать в себе суммы цифр числа. 
+//Т.е. необходимо подсчитывать суммы цифр чисел и записывать их в новый массив.
+// 1, 2, 5, 7, 19 -> [1, 2, 5, 7, 19]
+// 63, 12, 33, 36 -> [9, 3, 6, 9]
+
+void FillArray( int [] col)
+{
+    int length = col.Length;
     int index = 0;
     while (index < length)
     {
-        array [index] = new Random ().Next(-20, 20);  // заполнили массив и вывели массив
-        Console.Write(array[index] + " ");
+        col[index] = new Random ().Next(-100, 100); 
         index ++;
     }
 }
 
-void del ( int [] coll2, int y)
+void PrintArray( int [] coll)
 {
-    for (int inde = 0; inde < coll2.Length; inde++) 
+    int count = coll.Length;
+    int position = 0;
+    while (position < count)
     {
-        if (y> coll2.Length || y < 0)  
-        {
-            Console.WriteLine("Нет такой позиции"); 
-            break;
-        }
-        if (inde != y) Console.Write(coll2[inde]+ " ");             
+        Console.Write(coll[position]+ " "); 
+        position ++;
     }
-} 
+}
 
-Console.WriteLine("Задайте длину массива");
-int q = int.Parse(Console.ReadLine());
-Console.WriteLine("C какой позиции элемент хотите убрать?");
-int p = int.Parse(Console.ReadLine());
-int [] w = new int [q];
-FillArray (w, q);
-Console.WriteLine();
-del(w, p); */
-
-/* // Создать массив из двух массивов
-
-void FillArray ( int [] array, int length)
+int [] newline (int [] c)
 {
-    int index = 0;
-    while (index < length)
+int [] newarray = new int [c.Length];
+for (int i=0; i<c.Length; i++)
+{
+int number = Math.Abs(c[i]);
+int sum = 0;
+while ( number != 0)
+{
+   int temp = number%10;
+   sum = sum + temp;
+   number = number/10;
+   
+}
+newarray[i]=sum;
+}
+return newarray;
+}
+
+int [] a = new int[8];
+FillArray(a);
+PrintArray(a);
+Console.WriteLine();
+int [] goal = newline(a);
+PrintArray(goal); */
+
+/* // Преобразовать массив так, чтобы сначала шли нулевые элементы, а затем все остальные.
+
+int [] FillArray()
+{
+    Console.WriteLine("введите длину массива");
+    int L = int.Parse(Console.ReadLine());
+    
+    if (L<0) 
     {
-        array [index] = new Random ().Next(-20, 20);  // заполнили  и вывели массив
-        Console.Write(array[index] + " ");
+        Console.WriteLine("номер не прошел"); 
+        //break;  // здесь что-то не так. Что? :(((((((((((((
+    }
+    int [] qwerty = new int [L];   
+    int index = 0;
+    while (index < qwerty.Length)
+    {
+        qwerty[index] = new Random ().Next(-1, 3); 
         index ++;
+    }
+    return qwerty;
+}
+void PrintArray( int [] coll)
+{
+    int count = coll.Length;
+    int position = 0;
+    while (position < count)
+    {
+        Console.Write(coll[position]+ " "); 
+        position ++;
     }
     Console.WriteLine();
 }
 
-void array (int [] array1, int [] array2)
+void Peremen (int [] AA) // но здесь не совсем по порядку, т.к. позиции менялись местами, а не выталкивались
 {
-    int length = array1.Length + array2.Length;
-    int [] array3 = new int [length];
-    for (int ind = 0; ind < array1.Length; ind++) 
-    {
-        array3[ind] = array1[ind];
-        Console.Write(array3[ind]+ " ");
-    }
-    for (int ind2 = array1.Length; ind2 < length; ind2++) 
-    {
-        array3[ind2] = array2[ind2 - array1.Length];
-        Console.Write(array3[ind2]+ " ");
-    }
-        
-    }
+    int [] peres = new int [AA.Length];
+    int temp = 0;
+    int ii = 0;
+    int i = 0;
 
-Console.WriteLine("Задайте длину массива 1");
-int l1 = int.Parse(Console.ReadLine());
-Console.WriteLine("Задайте длину массива 2");
-int l2 = int.Parse(Console.ReadLine());
-int [] arr1 = new int [l1];
-int [] arr2 = new int [l2];
-FillArray (arr1, l1);
-FillArray (arr2, l2);
-array(arr1, arr2); */
+    while (i < AA.Length)
+    {
+        if (AA[i] == 0) 
+        {
+            temp = AA[i];
+            AA[i] = AA[ii];
+            AA[ii]=temp; 
+           ii ++;
+        }
+     
+       i ++;
+       
+    }
+}
+
+int [] Peremen2 (int [] AAA) // так мне больше нравится
+   
+   {
+    int [] peres2 = new int [AAA.Length];
+    // int temp = 0;
+    // int ii = 0;
+    int i = 0;
+
+    for (int j = 0; j < AAA.Length; j++)
+    {
+        if (AAA[j] == 0) 
+        {
+            peres2[i] = 0;
+            i++; 
+        }
+           
+    }
+     for (int l = 0; l < AAA.Length; l++)
+    {
+        if (AAA[l] != 0) 
+        {
+            peres2[i] = AAA[l];
+            i++;    
+        }
+           
+    }
+    
+    return peres2;   
+    }
+    
+
+
+
+int [] arr1 = FillArray();
+PrintArray(arr1); 
+int [] arr2 = Peremen2(arr1);
+PrintArray(arr2); 
+Peremen (arr1);
+PrintArray(arr1); */
+
+//Известно, что на доске 8×8 можно расставить 8 ферзей так, чтобы они не били друг друга. 
+//Вам дана расстановка 8 ферзей на доске, определите, есть ли среди них пара бьющих друг друга.
+//Программа получает на вход восемь пар чисел, каждое число от 1 до 8 — координаты 8 ферзей. 
+//Если ферзи не бьют друг друга, выведите слово NO, иначе выведите YES.
