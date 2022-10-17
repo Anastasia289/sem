@@ -1,0 +1,40 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+</Project>
+
+
+void queen ( int [,] matrix2)
+{
+   int QueenCount = 1;
+   Console.WriteLine("Сколько ферзей хотите поставить?");
+   int t = int.Parse(Console.ReadLine());
+   while (QueenCount < t+1)
+   {
+    Console.WriteLine($"Куда поставить ферзя {QueenCount}? ");
+    int x = int.Parse(Console.ReadLine());
+    int y = int.Parse(Console.ReadLine());
+    
+    if (x<0 || x>7 || y<0 || y>7 ) 
+    {Console.WriteLine("Такой клетки нет");
+     x = int.Parse(Console.ReadLine());
+     y = int.Parse(Console.ReadLine());
+    } 
+    
+    if (matrix2 [x, y] == 2) 
+    {
+      Console.WriteLine( "Эта уже зянята");
+      x = int.Parse(Console.ReadLine());
+      y = int.Parse(Console.ReadLine());
+    }
+    
+    if (matrix2 [x, y] == 0) matrix2 [x, y] =2;
+    QueenCount ++;
+   }
+}

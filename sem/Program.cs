@@ -523,5 +523,534 @@ FillArray (arr2, l2);
 array(arr1, arr2); */
 
 
+// Задан список фамилий брокеров товарной биржи из N человек. Обменяйте местами фамилии брокеров: первого и последнего, второго и предпоследнего, третьего от начала и третьего от конца и т.д.
+// Например, Олег Вася Камила Дора -> Дора Камила Вася Олег
+
+// void Change (string [] names)
+// {
+// int A = names.Length;
+// int B = A/2;
+// string C = string.Empty;
+
+// for (int i = 0; i< B; i++)
+// {
+//     C = names[i];
+//     names[i] = names[A-1-i];
+//     names[A-1-i]=C;
+// }
+// }
+
+// void Printarr ( string [] array)
+// {
+//     int A = array.Length;
+//     int index = 0;
+//     while (index < A)
+//     {
+//         Console.Write(array[index] + " ");
+//         index ++;
+//     }
+//     Console.WriteLine();
+// }
+
+// string [] newstr ( )
+// {
+// Console.WriteLine("Введите количество элементов списка: ");
+// int length1 = int.Parse(Console.ReadLine());
+// string [] myArr = new string [length1];
+// Console.WriteLine("Введите через enter имена: ");
+// for (int i=0;i< length1;i++)
+// {
+//     myArr[i] = Console.ReadLine();
+// }
+// //System.Console.WriteLine(String.Join(",",myArr));
+// return myArr;
+// }
+
+// string [] names  = newstr();
+// // string [] names = {"Маша", "Петя", "Коля", "Вася", "Андрей", "Оля"};
+
+// Printarr(names);
+// Change(names);
+// Printarr(names);
+
+// Дан одномерный массив целых чисел. Найдите, сколько раз в нем повторяется самое частое число.
+// Например,  15      23      14      23      17      23      21      14 -> 3
 
 
+// void FillArray ( )
+// {
+//     int length1 = int.Parse(Console.ReadLine());
+//     int [] array = new int [length1];
+//     int index = 0;
+//     while (index < length1)
+//     {
+//         array [index] = new Random ().Next(-20, 20); 
+//         Console.Write(array[index] + " ");
+//         index ++;
+//     }
+// }
+
+// Myarr [] = FillArray ( );
+
+// int max = Myarr[0];
+// int maxind = 0;
+// int temp = 0;
+// for (int i = 0; i< Myarr.Length, i++)
+// {
+// for (int j = 0; j< Myarr.Length, j++)
+//  {
+
+// }
+// if (Myarr[j] == Myarr[i]) temp++;
+// if (temp > maxind) maxind = temp;
+// }
+
+
+// Программа должна создать массив из 12 случайных целых чисел из отрезка [-10;10] таким образом, 
+//чтобы отрицательных и положительных элементов там было поровну и не было нулей. 
+// При этом порядок следования элементов должен быть случаен (т. е. не подходит вариант, когда в массиве 
+// постоянно выпадает сначала 6 положительных, а потом 6 отрицательных чисел или же когда элементы постоянно 
+//чередуются через один и пр.). Вывести полученный массив на экран.
+
+
+int []arr = new int [12];
+int pos = 0;
+int min = 0;
+
+while (pos != 6 && min !=6)
+{
+    pos = 0;
+    min = 0;
+    for (int i = 0; i < 12; i++)
+    {
+    int a = new Random ().Next(-10, 10);
+    if (a>0) {pos ++; arr[i] = a;Console.Write(arr[i] + " ");}
+    if (a<0) {min ++; arr[i] = a;Console.Write(arr[i] + " ");}
+    }
+    
+}
+
+
+
+ Console.WriteLine();
+ Console.WriteLine(min);
+ Console.WriteLine(pos);
+ 
+
+/* // Задача 25: Напишите цикл, который принимает на вход два числа (A и B) и возводит число A в натуральную степень B. 
+//Сделать в функции, сделать проверку на отрицательность.
+// 3, 5 -> 243 (3⁵)
+// 2, 4 -> 16
+
+void stepen ()
+{
+Console.WriteLine("Введите число А");
+int A = int.Parse(Console.ReadLine());
+Console.WriteLine("Введите число B");
+int B = int.Parse(Console.ReadLine());
+double C = 0;
+if (B>0) C = Math.Pow (A, B);
+Console.WriteLine(C);   
+}
+
+stepen (); */
+
+/* // Задача 27: Напишите программу, которая принимает на вход число и выдаёт сумму цифр в числе.
+
+void summ ()
+{
+Console.WriteLine("Введите число");
+int number = int.Parse(Console.ReadLine());  // такое уже было
+int sum = 0;
+int temp = 0;
+while ( number != 0)
+{
+    temp = number%10;
+    sum = sum + temp;
+   number = number/10;
+}
+Console.WriteLine(sum); 
+}
+ 
+ summ (); */
+
+/* // Задача 29: Напишите программу, которая задаёт массив из 8 элементов и выводит их на экран. 
+//Элементы задаются рандомно. Итоговый массив должен содержать в себе суммы цифр числа. 
+//Т.е. необходимо подсчитывать суммы цифр чисел и записывать их в новый массив.
+// 1, 2, 5, 7, 19 -> [1, 2, 5, 7, 19]
+// 63, 12, 33, 36 -> [9, 3, 6, 9]
+
+void FillArray( int [] col)
+{
+    int length = col.Length;
+    int index = 0;
+    while (index < length)
+    {
+        col[index] = new Random ().Next(-100, 100); 
+        index ++;
+    }
+}
+
+void PrintArray( int [] coll)
+{
+    int count = coll.Length;
+    int position = 0;
+    while (position < count)
+    {
+        Console.Write(coll[position]+ " "); 
+        position ++;
+    }
+}
+
+int [] newline (int [] c)
+{
+int [] newarray = new int [c.Length];
+for (int i=0; i<c.Length; i++)
+{
+int number = Math.Abs(c[i]); // модуль
+int sum = 0;
+while ( number != 0)
+{
+   int temp = number%10;
+   sum = sum + temp;
+   number = number/10;
+   
+}
+newarray[i]=sum;
+}
+return newarray;
+}
+
+int [] a = new int[8];
+FillArray(a);
+PrintArray(a);
+Console.WriteLine();
+int [] goal = newline(a);
+PrintArray(goal); */
+
+/* // Преобразовать массив так, чтобы сначала шли нулевые элементы, а затем все остальные.
+
+int [] FillArray()
+{
+    Console.WriteLine("введите длину массива");
+    int L = int.Parse(Console.ReadLine());
+    if (L<0)  
+    {
+        Console.WriteLine("неееет, так нельзяаааа"); 
+        //break; // ну и как это остановить?  :(((((((((((((
+    }  
+    int [] qwerty = new int [L];
+    int index = 0;
+    while (index < qwerty.Length)
+    {
+        qwerty[index] = new Random ().Next(-1, 3); 
+        index ++;
+    }
+    return qwerty;
+}
+void PrintArray( int [] coll)
+{
+    int count = coll.Length;
+    int position = 0;
+    while (position < count)
+    {
+        Console.Write(coll[position]+ " "); 
+        position ++;
+    }
+    Console.WriteLine();
+}
+
+void Peremen (int [] AA) // вроде как в задаче, но здесь не совсем по порядку, т.к. позиции менялись местами, а не выталкивались
+{
+    int [] peres = new int [AA.Length];
+    int temp = 0;
+    int ii = 0;
+    int i = 0;
+
+    while (i < AA.Length)
+    {
+        if (AA[i] == 0) 
+        {
+            temp = AA[i];
+            AA[i] = AA[ii];
+            AA[ii]=temp; 
+           ii ++;
+        }
+     
+       i ++;
+       
+    }
+}
+
+int [] Peremen2 (int [] AAA) // так мне больше нравится
+   
+   {
+    int [] peres2 = new int [AAA.Length];
+    // int temp = 0;
+    // int ii = 0;
+    int i = 0;
+
+    for (int j = 0; j < AAA.Length; j++)
+    {
+        if (AAA[j] == 0) 
+        {
+            peres2[i] = 0;
+            i++; 
+        }
+           
+    }
+     for (int l = 0; l < AAA.Length; l++)
+    {
+        if (AAA[l] != 0) 
+        {
+            peres2[i] = AAA[l];
+            i++;    
+        }
+           
+    }
+    
+    return peres2;   
+    }
+    
+int [] arr1 = FillArray();
+PrintArray(arr1); 
+int [] arr2 = Peremen2(arr1);
+PrintArray(arr2); 
+Peremen (arr1);
+PrintArray(arr1); */
+
+/* //Известно, что на доске 8×8 можно расставить 8 ферзей так, чтобы они не били друг друга. 
+//Вам дана расстановка 8 ферзей на доске, определите, есть ли среди них пара бьющих друг друга.
+//Программа получает на вход восемь пар чисел, каждое число от 1 до 8 — координаты 8 ферзей. 
+//Если ферзи не бьют друг друга, выведите слово NO, иначе выведите YES.
+
+// К черту ферзей, играю ладьей! И без диагоналей чушь какая-то) 
+
+
+int [,] PrintNewBoard (int [,] m)
+{
+    for (int i = 0; i< 8; i++)
+{
+    for (int j = 0; j< 8; j++)
+    {
+        Console.Write($"{m[i,j]}" + " ");
+    }
+        Console.WriteLine();
+}
+return m;
+}
+
+void queen ( int [,] matrix2)
+{
+   int QueenCount = 1;
+   Console.WriteLine("Сколько ферзей хотите поставить?");
+   int t = int.Parse(Console.ReadLine());
+   while (QueenCount < t+1)
+   {
+    Console.WriteLine($"Куда поставить ферзя {QueenCount}? ");
+    int x = int.Parse(Console.ReadLine());
+    int y = int.Parse(Console.ReadLine());
+    
+    if (x<0 || x>7 || y<0 || y>7 ) 
+    {Console.WriteLine("Такой клетки нет");
+     x = int.Parse(Console.ReadLine());
+     y = int.Parse(Console.ReadLine());
+    } 
+    
+    if (matrix2 [x, y] == 2) 
+    {
+      Console.WriteLine( "Эта уже зянята");
+      x = int.Parse(Console.ReadLine());
+      y = int.Parse(Console.ReadLine());
+    }
+    
+    if (matrix2 [x, y] == 0) matrix2 [x, y] =2;
+    QueenCount ++;
+   }
+}
+
+void fight ( int [,] matrix3)
+{
+    int c =0;
+   for (int i0 = 0; i0< 8; i0++) 
+   {
+    for (int j0 = 0; j0< 8; j0++)
+    {
+        if (matrix3 [i0, j0] == 2)
+        
+        {
+            for (int i1 = 0; i1< 8; i1++)
+            {
+
+                for (int j1 = 0; j1< 8; j1++)
+                {
+                   // if (matrix3 [i0, j1] != 2)  matrix3 [i0, j1] =1 ;  // строка
+                   // if (matrix3 [i1, j0] != 2)  matrix3 [i1, j0] =1 ;  // столбец
+                   if (matrix3 [i0, j1] == 2 && j1!=j0 ) c++;  // строка
+                   if (matrix3 [i1, j0] == 2 && i1!=i0 ) c++;  // столбец
+                                         
+                  int i2 = i0-j0;
+                  int j2 = j0-i0;
+                  if (i2<0) i2 = 0;
+                  if (j2<0) j2=0;
+                  
+                             
+                }
+           
+
+            }
+            
+        } 
+
+        
+            
+    }
+   }
+   if (c>0) Console.WriteLine("упс");
+   if (c==0) Console.WriteLine("все ок");
+}
+
+
+int [,] matrix = new int [8,8];
+queen (matrix);
+fight (matrix);
+PrintNewBoard(matrix);  */
+
+/* // Задача 34: Задайте массив заполненный случайными положительными трёхзначными числами. Напишите программу, 
+//которая покажет количество чётных чисел в массиве.
+// [345, 897, 568, 234] -> 2
+
+List<int> qwert ()
+{
+
+    List<int> mass = new List<int> ();
+    Console.WriteLine("Введите длину массива");
+    int k = int.Parse(Console.ReadLine());
+    int count = 0;
+    while (k>0)
+    {
+        int i = new Random().Next(100, 999);
+        if (i %2 == 0) count++;
+        mass.Add(i);
+        k--;
+    }
+    foreach (var n in mass) Console.Write(n + " ");
+    Console.WriteLine($"\n Количество четных чисел: {count}");
+    return mass;
+}
+
+List<int>qwerty = qwert(); */
+
+/* // Задача 36: Задайте одномерный массив, заполненный случайными числами. Найдите сумму элементов, стоящих на нечётных позициях.
+// [3, 7, 23, 12] -> 19
+// [-4, -6, 89, 6] -> 0
+List<int> qwert ()
+{
+    List<int> mass = new List<int> ();
+    Console.WriteLine("Введите длину массива");
+    int k = int.Parse(Console.ReadLine());
+    while (k>0)
+    {
+        int i = new Random().Next(-10, 10);
+        mass.Add(i);
+        k--;
+    }
+    foreach (var n in mass) Console.Write(n + " ");
+    return mass;
+}
+
+int S (List<int> m)
+{
+    int k = m.Count;
+    int i = 1;
+    int sum = 0;
+    while (i <k) 
+    {
+        sum = sum +m[i];
+        i = i+2;
+    }
+    return sum;
+}
+
+List<int>qwerty = qwert();
+Console.WriteLine();
+int y = S(qwerty);
+Console.WriteLine($"Сумма нечетных элементов равна {y}"); */
+
+ /* // Задача 38: Задайте массив вещественных чисел. Найдите разницу между максимальным и минимальным элементов массива.
+// [3 7 22 2 78] -> 76
+
+List<double> qwert ()
+{
+    List<double> mass = new List<double> ();
+    Console.WriteLine("Введите длину массива");
+    int k = int.Parse(Console.ReadLine());
+    while (k>0)
+    {
+        double i = Math.Round (new Random().NextDouble()*100, 2);
+        mass.Add(i);
+        k--;
+    }
+    foreach (var n in mass) Console.Write(n + " ");
+    return mass;
+}
+void MinMax (List<double>m)
+{
+    double Max = m[0];
+    double Min = m[0];
+    double Max1 = m[0];
+    double Min1 = m[0];
+
+    for (int i=0; i< m.Count-1; i++)
+    {
+        Max = Math.Max(m[i], m[i+1]); 
+        Min = Math.Min(m[i], m[i+1]);
+        if (Max > Max1) Max1 = Max;
+        if (Min < Min1) Min1 = Min;
+    }
+// Console.WriteLine ( "\n максимум " + Max1);
+// Console.WriteLine ( "\n минимум " + Min1);
+Console.WriteLine ($" \n Разница между минимальным и максимальным числом массива равна {Math.Round(Max1-Min1, 2)}");
+}
+
+List<double>qwerty = qwert();
+MinMax (qwerty); */
+
+
+// Дополнительно
+// Дан список некоторых целых чисел, найдите значение 20 в нем и, если оно присутствует, замените его на 200. 
+//Обновите список только при первом вхождении числа 20.
+// [21, 53,20, 56, 45,20] -> [21, 53,200, 56, 45,20]
+
+/* List<int> qwert ()
+{
+    List<int> mass = new List<int> ();
+    int k = new Random().Next(7, 25); 
+    while (k>0)
+    {
+        int i = new Random().Next(17, 23);
+        mass.Add(i);
+        k--;
+    }
+    foreach (var n in mass) Console.Write(n + " ");
+    return mass;
+}
+
+List<int> change (List<int> q)
+{
+    //int index = q.Find(x => x == 20);
+    int index = q.FindIndex( startIndex: 0, match: x => x == 20);
+    if (index < 0) Console.WriteLine("Такого элемента нет");
+    if (index >= 0) 
+    
+    {
+        q[index] = 200;
+        Console.WriteLine();
+        foreach (var n in q) Console.Write(n + " ");
+    }
+    
+    return q;
+}
+
+List<int>qwerty = qwert();
+change (qwerty); */

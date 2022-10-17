@@ -104,7 +104,7 @@ MinMax (qwerty); */
 //Обновите список только при первом вхождении числа 20.
 // [21, 53,20, 56, 45,20] -> [21, 53,200, 56, 45,20]
 
-List<int> qwert ()
+/* List<int> qwert ()
 {
     List<int> mass = new List<int> ();
     int k = new Random().Next(7, 25); 
@@ -135,6 +135,6 @@ List<int> change (List<int> q)
 }
 
 List<int>qwerty = qwert();
-change (qwerty);
+change (qwerty); */
 
 
