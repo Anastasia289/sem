@@ -1,99 +1,222 @@
-﻿/* // Задача 41: Пользователь вводит с клавиатуры M чисел. Посчитайте, сколько чисел больше 0 ввёл пользователь.
-// 0, 7, 8, -2, -2 -> 2
-// 1, -7, 567, 89, 223-> 3
+﻿/* // Задача 47. Задайте двумерный массив размером m×n, заполненный случайными вещественными числами.
 
-int [] Fillsmth ()
-
+void Filllist (List <List <double >> mylist)
 {
-    Console.WriteLine("Cколько чисел будем вводить?");
-    int M = int.Parse(Console.ReadLine());
-    int [] a = new int [M];
-    Console.Write("Введите число ");
-    for (int i = 0; i <M; i++)
+    Console.WriteLine("Задайте размер массива");
+    int n = int.Parse(Console.ReadLine());
+    int m = int.Parse(Console.ReadLine());
+    for(int i = 0; i<n;i++)
     {
-        a[i] = int.Parse(Console.ReadLine());    
+         mylist.Add(new List <double>());
+
+    for(int j = 0; j<m;j++)
+    mylist[i].Add(Math.Round(new Random().NextDouble()*9, 2));
     }
-    return a;
 }
 
-void Countpos (int [] arr)
+void Printlist (List <List <double >> mylist)
 {
-   int n = 0;
-   for (int i = 0; i <arr.Length; i++)
+    for(int i = 0; i<mylist.Count;i++)
     {
-    if (arr[i] > 0) n++;
-    Console.Write(arr[i] + " ");
+       for(int j = 0; j<mylist[i].Count;j++)
+    Console.Write(mylist[i][j] + " "); 
+    Console.WriteLine();
+    }
+  
+    Console.WriteLine();
+}
+
+List <List <double >> numbers = new List <List<double >> ();
+Filllist (numbers);
+Printlist(numbers); */
+
+/* // Задача 50. Напишите программу, которая на вход принимает позиции элемента в двумерном массиве,
+ и возвращает значение этого элемента или же указание, что такого элемента нет.
+
+void Filllist (List <List <double >> mylist)
+{
+    Console.WriteLine("Задайте размер массива");
+    int n = int.Parse(Console.ReadLine());
+    int m = int.Parse(Console.ReadLine());
+    for(int i = 0; i<n;i++)
+    {
+         mylist.Add(new List <double>());
+
+    for(int j = 0; j<m;j++)
+    mylist[i].Add(Math.Round(new Random().NextDouble()*9, 2));
+    }
+}
+
+void Printlist (List <List <double >> mylist)
+{
+    for(int i = 0; i<mylist.Count;i++)
+    {
+       for(int j = 0; j<mylist[i].Count;j++)
+    Console.Write(mylist[i][j] + " "); 
+    Console.WriteLine();
+    }
+  
+    Console.WriteLine();
+}
+
+void Checkpos (List <List <double >> mylist)
+{
+    Console.WriteLine("Какую позицию хотите проверить?");
+    int n = int.Parse(Console.ReadLine());
+    int m = int.Parse(Console.ReadLine());
+    double c = 0;
+    for(int i = 0; i<mylist.Count;i++)
+    {
+        if (n<0 || n>mylist.Count || m<0 || m>mylist[i].Count)
+        {
+            Console.WriteLine("Такой позиции нет");
+            break;
+        }
+       for(int j = 0; j<mylist[i].Count;j++)
+    {
+        c = mylist[n][m];
     }
     
-    Console.WriteLine($"Количество положительных чисел равно {n}"); 
-}
-int [] aaa = Fillsmth ();
-Countpos (aaa); */
-
-// Задача 43: Напишите программу, которая найдёт точку пересечения двух прямых, заданных уравнениями 
-//y = k1 * x + b1, y = k2 * x + b2; значения b1, k1, b2 и k2 задаются пользователем.
-// b1 = 2, k1 = 5, b2 = 4, k2 = 9 -> (-0,5; -0,5)
-
-
-// Console.WriteLine("Введите k и b для первой прямой");
-// int k1 = int.Parse(Console.ReadLine());
-// int b1 = int.Parse(Console.ReadLine());
-// Console.WriteLine("Введите k и b для второй прямой");
-// int k2 = int.Parse(Console.ReadLine());
-// int b2 = int.Parse(Console.ReadLine());
-
-// if (k1 == k2) 
-// {
-//     if (b1==b2) 
-//     Console.WriteLine("Они совпадают"); 
-//     else Console.WriteLine("Они параллельны"); 
-// }
-// double x01 = b2-b1;
-// double x02 = k1-k2;
-// double x03 = x01/x02;
-// //double x0 = (b2-b1)/(k1-k2); // я хз что не так, но считает неправильно. 
-// double y0 = x03*k1+b1;
-// double y1 = x03*k2+b2;
-
-// Console.WriteLine($"Точка пересечения: х = {x03}, у = {y0}");
-
-// Дано действительное положительное число a и целое неотрицательное число n. Вычислите an не используя циклы,
-// возведение в степень через ** и функцию math.pow(), а используя рекуррентное соотношение an=a⋅an-1.
-// Решение оформите в виде функции power(a, n).
-
-
-/* //  Заполнить двумерный массив следующим образом. Вводится число n.
-
-int n = int.Parse(Console.ReadLine());
-int [,] m = new int [n,n];
-
-for (int i = 0; i<m.GetLength(0); i++)
-{
-        for (int j = 0; j<m.GetLength(1); j++)
-    {
-        
-        if (i>=j) m[i,j] = j+1;
-        else   m[i,j] = i+1;     
-        Console.Write(m[i,j] + " ");
-    }
+    } 
+    if (c!=0) Console.WriteLine(c);
     Console.WriteLine();
-} */
-
- /* // Дано действительное положительное число a и целое неотрицательное число n. Вычислите an не используя циклы, 
-// возведение в степень через ** и функцию math.pow(), а используя рекуррентное соотношение an=a⋅an-1.
-// Решение оформите в виде функции power(a, n).
-
-
-double power( double a, int n )
-{
-  
-if(n == 1) return a;
-else return a * power( a, n-1 );
 }
 
-Console.WriteLine("Введите число и степень, в которую его нужно возвести");
-double num = int.Parse(Console.ReadLine());
-int step = int.Parse(Console.ReadLine());
-if (step <0) Console.WriteLine("Упс");
-double dd = power(num, step);
-Console.WriteLine(dd); */
+List <List <double >> numbers = new List <List<double >> ();
+Filllist (numbers);
+Printlist(numbers);
+Checkpos (numbers); */
+
+/* // Задача 52. Задайте двумерный массив из целых чисел. Найдите среднее арифметическое элементов в каждом столбце.
+
+// Например, задан массив:
+// 1 4 7 2
+// 5 9 2 3
+// 8 4 2 4
+// Среднее арифметическое каждого столбца: 4,6; 5,6; 3,6; 3.
+int[,] NewArr (int a, int b)
+{
+int [,] ar = new int [a, b];
+for (int i = 0; i<a; i++)
+{
+    for (int j=0; j<b; j++)
+    {
+        ar[i,j]= new Random() .Next(0,9);
+    }
+} 
+return ar;
+}
+
+void Printarr (int [,] a)
+{
+    for (int i = 0; i< a.GetLength(0); i++)
+{
+    for (int j = 0; j< a.GetLength(1); j++)
+    {
+        Console.Write($"{a[i,j]}" + " ");
+    }
+        Console.WriteLine();
+}
+}
+
+double [] medcol (int[,]a)
+
+{
+    double [] m = new double [a.GetLength(1)];
+    
+    for (int i = 0; i< a.GetLength(0); i++)
+{
+    
+    for (int j = 0; j< a.GetLength(1); j++)
+    
+     m[j] =  m[j] + a[i,j];
+    
+}
+  for (int i = 0; i< a.GetLength(1); i++)
+{
+m[i] =  m[i]/a.GetLength(0);
+}
+return m;
+}
+
+void Printarr2 (double [] a)
+{
+    for (int i = 0; i< a.Length; i++)
+    {
+        Console.Write($" \n Среднее арифметическое столбца {i+1}: {a[i]}");
+    }
+
+       Console.WriteLine(); 
+    
+}
+
+Console.WriteLine("Задайте размер массива");
+int n = int.Parse(Console.ReadLine());
+int m = int.Parse(Console.ReadLine());
+int [,] MyArr=  NewArr (n,m);
+NewArr (n,m);
+Printarr (MyArr);
+double [] FindMed = medcol (MyArr);
+Printarr2 (FindMed);
+ */
+
+/* // Отсортировать в матрице столбцы по убыванию значений
+// элементов в первой строке. Использовать заполнение
+// случайными значениями.
+
+void Filllist (List <List <double >> mylist)
+{
+    Console.WriteLine("Задайте размер массива");
+    int n = int.Parse(Console.ReadLine());
+    int m = int.Parse(Console.ReadLine());
+    for(int i = 0; i<n;i++)
+    {
+         mylist.Add(new List <double>());
+
+    for(int j = 0; j<m;j++)
+    mylist[i].Add(Math.Round(new Random().NextDouble()*9));
+    }
+}
+
+void Printlist (List <List <double >> mylist)
+{
+    for(int i = 0; i<mylist.Count;i++)
+    {
+       for(int j = 0; j<mylist[i].Count;j++)
+    Console.Write(mylist[i][j] + " "); 
+    Console.WriteLine();
+    }
+  
+    Console.WriteLine();
+}
+
+
+void Sortlist (List <List <double >> mylist) 
+{
+    for (int i = 0; i < mylist.Count; i++) 
+    {
+        for (int j = 0; j < mylist[i].Count; j++) 
+        {
+           int minind = j; 
+           for (int ii = j; ii < mylist[i].Count; ii++) 
+        {
+            if (mylist[0][ii] < mylist[0][minind])
+            {
+                minind = ii; 
+            }
+        }     
+            
+         double temp = mylist[i][j]; 
+         mylist[i][j] = mylist[i][minind]; // где-то здесь полюбому косяк. 
+         mylist[i][minind] = temp; 
+        }
+        
+    }
+}
+
+List <List <double >> numbers = new List <List<double >> ();
+Filllist (numbers);
+Printlist(numbers);
+Sortlist (numbers);
+Printlist(numbers); */
+
