@@ -220,3 +220,130 @@ Printlist(numbers);
 Sortlist (numbers);
 Printlist(numbers); */
 
+// Дана матрица целых чисел размером n*m. Выведите количество седловых точек. 
+// (Седловой точкой называется элемент, который является наименьшим в своей строке и наибольшим в своем столбце или, 
+// наоборот, наибольшим в своей строке и наименьшим в своем столбце).
+
+void Filllist (List <List <double >> mylist)
+{
+    Console.WriteLine("Задайте размер массива");
+    int n = int.Parse(Console.ReadLine());
+    int m = int.Parse(Console.ReadLine());
+    for(int i = 0; i<n;i++)
+    {
+         mylist.Add(new List <double>());
+
+    for(int j = 0; j<m;j++)
+    mylist[i].Add(Math.Round(new Random().NextDouble()*9));
+    }
+}
+
+void Printlist (List <List <double >> mylist)
+{
+    for(int i = 0; i<mylist.Count;i++)
+    {
+       for(int j = 0; j<mylist[i].Count;j++)
+    Console.Write(mylist[i][j] + " "); 
+    Console.WriteLine();
+    }
+  
+    Console.WriteLine();
+}
+
+void Printlist2 (List <double > M)
+{
+    Console.WriteLine(); 
+    for(int i = 0; i<M.Count;i++) Console.Write(M[i] + " "); 
+}
+  
+    
+// void Sedl (List <List <double >> mylist)
+// {
+    
+//     int SedlPoint = 0;
+//     List <double > MinRow = new List <double >();
+//     List <double > MaxCol = new List <double >();
+    
+//        for(int i = 0; i<mylist.Count;i++)
+//     {
+//         double MinI0 = mylist[i][0];
+//         for(int j = 0; j<mylist.Count-1;j++)
+//        {
+//         double MinI1 = Math.Min(mylist[i][j], mylist[i][j+1]);
+//         if (MinI1<MinI0) MinI0 = MinI1; 
+//        }
+
+//       MinRow.Add(MinI0);
+//               Console.Write(MinI0 + "- ");
+       
+//     }
+//      Console.WriteLine();
+//     for(int j = 0; j<mylist.Count;j++)
+//     {
+//         double MaxJ0 = mylist[0][j];
+//         for(int i = 0; i<mylist.Count-1;i++)
+//        {
+//         double MaxJ1 = Math.Max(mylist[i][j], mylist[i+1][j]);
+//         if (MaxJ1>MaxJ0) MaxJ0 = MaxJ1; 
+      
+//        }
+//       MinRow.Add(MaxJ0);
+      
+//         Console.Write(MaxJ0 + "+ ");
+        
+//     }
+// Console.WriteLine();
+   
+    
+
+//    // Console.WriteLine($"Количество седловых точек равно {SedlPoint}");
+//     Console.WriteLine();
+    
+// }
+
+List <double> MinRow (List <List <double >> mylist)
+{
+    
+    List <double > MinRow = new List <double >();
+       
+       for(int i = 0; i<mylist.Count;i++)
+       {
+        double MinI0 = mylist[i][0];
+        for(int j = 0; j<mylist.Count-1;j++)
+        {
+            double MinI1 = Math.Min(mylist[i][j], mylist[i][j+1]);
+            if (MinI1<MinI0) MinI0 = MinI1; 
+        }
+        
+        MinRow.Add(MinI0);
+       
+        }   
+    return MinRow;
+}
+
+List <double> MaxCol (List <List <double >> mylist)
+{
+    
+    List <double > MaxCol = new List <double >();
+       for(int j = 0; j<mylist.Count;j++)
+    {
+        double MaxJ0 = mylist[0][j];
+        for(int i = 0; i<mylist.Count-1;i++)
+       {
+        double MaxJ1 = Math.Max(mylist[i][j], mylist[i+1][j]);
+        if (MaxJ1>MaxJ0) MaxJ0 = MaxJ1; 
+      
+       }
+      MaxCol.Add(MaxJ0);        
+    } 
+    return MaxCol;
+}
+
+List <List <double >> numbers = new List <List<double >> ();
+Filllist (numbers);
+Printlist(numbers);
+List <double > MinRowNum = MinRow(numbers);
+List <double > MaxColNum = MaxCol(numbers);
+Printlist2 (MinRowNum);
+//Printlist2 (MaxColNum);
+

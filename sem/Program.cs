@@ -1193,3 +1193,47 @@ List<int> change (List<int> q)
 
 List<int>qwerty = qwert();
 change (qwerty); */
+
+/* // отсортировать массив по возрастанию
+
+int [] FillArray (int a)
+{
+    int [] ar = new int [a];
+    for (int i = 0; i<a; i++)
+{
+    ar[i] = new Random ().Next(0,20);
+}
+return ar;
+}
+
+void Printarr (int [] ar)
+{
+    for (int i = 0; i<ar.Length; i++)  Console.Write (ar[i] + " ");
+}
+
+void Peremen (int [] AA) 
+{
+            for (int i = 0; i < AA.Length; i++) 
+            {
+                int minind = i; 
+                for (int j = i; j < AA.Length; j++) 
+                {
+                    if (AA[j] < AA[minind])
+                    {
+                        minind = j; 
+                    }
+                }
+                if (AA[minind] == AA[i]) continue;
+                int temp = AA[i]; 
+                AA[i] = AA[minind];
+                AA[minind] = temp;
+            }
+}
+ 
+Console.WriteLine("Задайте длину массива");
+int a = int.Parse(Console.ReadLine());
+int [] arr = FillArray (a);
+Printarr (arr);
+Console.WriteLine();
+Peremen(arr );
+Printarr (arr); */

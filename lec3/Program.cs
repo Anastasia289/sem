@@ -39,35 +39,35 @@ Console.WriteLine(number2); */
 // средний столбец массива, главную диагональ и побочную диагональ. В результате единицы в массиве должны 
 // образовывать изображение звездочки. Выведите полученный массив на экран, разделяя элементы массива пробелами.
 
-// int n = int.Parse(Console.ReadLine());
-// string [,] m = new string [n,n];
-// int k = n/2;
+int n = int.Parse(Console.ReadLine());
+string [,] m = new string [n,n];
+int k = n/2;
 
-// for (int i = 0; i<m.GetLength(0); i++)
-// {
-//     for (int j = 0; j<m.GetLength(1); j++)
-//     {
-//         m[i,j] = ".";
-//         //Console.Write(m[i,j]);       
-//     }
-//     //Console.WriteLine();
-// }
-// //int u = n;
-// for (int i = 0; i<m.GetLength(0); i++)
-// {
+for (int i = 0; i<m.GetLength(0); i++)
+{
+    for (int j = 0; j<m.GetLength(1); j++)
+    {
+        m[i,j] = ".";
+        //Console.Write(m[i,j]);       
+    }
+    //Console.WriteLine();
+}
+//int u = n;
+for (int i = 0; i<m.GetLength(0); i++)
+{
     
-//     for (int j = 0; j<m.GetLength(1); j++)
-//     {
+    for (int j = 0; j<m.GetLength(1); j++)
+    {
        
-//         if (j == k) m[i,j] = "*";
-//         if (i == k) m[i,j] = "*";
-//         m[i,i] = "*";
-//         m[i,n-i-1] = "*"; 
-//        Console.Write(m[i,j] + " "); 
+        if (j == k) m[i,j] = "*";
+        if (i == k) m[i,j] = "*";
+        m[i,i] = "*";
+        m[i,n-i-1] = "*"; 
+       Console.Write(m[i,j] + " "); 
               
-//     }
-//     Console.WriteLine();
-// } 
+    }
+    Console.WriteLine();
+} 
 
 // Дано число n. Создайте массив размером n×n и заполните его по следующему правилу.
 //  На главной диагонали должны быть записаны числа 0. На двух диагоналях, прилегающих к главной, числа 1.
